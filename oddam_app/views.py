@@ -12,6 +12,13 @@ class LandingPage(View):
 class AddDonation(View):
     def get(self, request):
         return render(request, "oddam_app/form.html")
-# AddDonation
-# Login
-# Register
+
+
+class Login(View):
+    def get(self, request):
+        return render(request, "oddam_app/login.html")
+
+
+class Register(View):
+    def get(self, request):
+        return render(request, "oddam_app/register.html")
