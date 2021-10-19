@@ -1,4 +1,5 @@
 {% extends base.html %}
+{% load static %}
 
 {%  block title %} Oddam w dobre ręce {% endblock %}
 
@@ -54,9 +55,9 @@
       <div class="about-us--text">
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero optio esse quisquam illo omnis.</p>
-        <img src="images/signature.svg" class="about-us--text-signature" alt="Signature" />
+        <img src="{% static "oddam_app/images/signature.svg" %}" class="about-us--text-signature" alt="Signature" />
       </div>
-      <div class="about-us--image"><img src="images/about-us.jpg" alt="People in circle" /></div>
+      <div class="about-us--image"><img src="{% static "oddam_app/images/about-us.jpg" %}" alt="People in circle" /></div>
     </section>
 
      <section id="help" class="help">
@@ -213,8 +214,8 @@
       <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2019</span>
         <div class="bottom-line--icons">
-          <a href="#" class="btn btn--small"><img src="images/icon-facebook.svg"/></a>
-          <a href="#" class="btn btn--small"><img src="images/icon-instagram.svg"/></a>
+          <a href="#" class="btn btn--small"><img src="{% static "oddam_app/images/icon-facebook.svg" %}" alt="facebook button"/></a>
+          <a href="#" class="btn btn--small"><img src="{% static "oddam_app/images/icon-instagram.svg" %}" alt="instagram button"/></a>
         </div>
       </div>
     </footer>
