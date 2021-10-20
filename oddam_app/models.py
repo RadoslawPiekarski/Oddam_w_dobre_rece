@@ -10,6 +10,7 @@ class Category(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+
 class Institution(models.Model):
     TYPES = (
         ('F', 'fundacja'),
@@ -23,6 +24,7 @@ class Institution(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
 
 class Donation(models.Model):
     quantity = models.IntegerField()
