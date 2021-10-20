@@ -15,7 +15,7 @@ class Institution(models.Model):
         ('Z', 'zbiórka lokalna'),
     )
     name = models.CharField(max_length=50)
-    description = models.TextField
+    description = models.TextField(null=True)
     type = models.CharField(max_length=1, choices=TYPES, default='F')
     categories = models.ManyToManyField(Category)
 
