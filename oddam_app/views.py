@@ -13,6 +13,7 @@ class LandingPage(View):
         print(all_donated_organisations)
         return render(request, "oddam_app/index.html", {
             "all_given_donations": all_given_donations,
+            "all_donated_organisations": all_donated_organisations,
         })
 
 
