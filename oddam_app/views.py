@@ -10,7 +10,9 @@ class LandingPage(View):
     def get(self, request):
         all_given_donations = list(Donation.objects.aggregate(Sum('quantity')).values())[0]
         print(all_given_donations)
-        return render(request, "oddam_app/index.html")
+        return render(request, "oddam_app/index.html", {
+            "all_given_donations": all_given_donations,
+        })
 
 
 class AddDonation(View):
