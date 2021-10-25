@@ -3,9 +3,8 @@ from django.views import View
 from django.db.models import Sum
 from .models import Donation
 
+
 # Create your views here.
-
-
 class LandingPage(View):
     def get(self, request):
         all_given_donations = list(Donation.objects.aggregate(Sum('quantity')).values())[0]
