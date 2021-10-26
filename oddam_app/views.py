@@ -17,6 +17,7 @@ class LandingPage(View):
             "all_given_donations": all_given_donations,
             "all_donated_organisations": all_donated_organisations,
             "sample_foundations": sample_foundations,
+            "sample_organisations": sample_organizations,
             "sample_collections": sample_collections
         })
 
