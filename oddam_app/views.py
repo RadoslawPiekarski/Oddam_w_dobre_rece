@@ -12,7 +12,6 @@ class LandingPage(View):
         sample_foundations = Institution.objects.filter(type='F')[:3]
         sample_organizations = Institution.objects.filter(type='O')[:3]
         sample_collections = Institution.objects.filter(type='Z')[:3]
-
         return render(request, "oddam_app/index.html", {
             "all_given_donations": all_given_donations,
             "all_donated_organisations": all_donated_organisations,
