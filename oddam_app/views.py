@@ -10,7 +10,8 @@ class LandingPage(View):
         all_given_donations = list(Donation.objects.aggregate(Sum('quantity')).values())[0]
         all_donated_organisations = Donation.objects.values('institution').count()
         sample_foundations = Institution.objects.filter(type='F')[:3]
-        print(sample_foundations)
+        sample_organizations = Institution.objects.filter(type='O')[:3]
+        sample_collections = Institution.objects.filter(type='Z')[:3]
         return render(request, "oddam_app/index.html", {
             "all_given_donations": all_given_donations,
             "all_donated_organisations": all_donated_organisations,
