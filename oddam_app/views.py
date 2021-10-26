@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.db.models import Sum
-from .models import Donation
+from .models import Donation, Institution
 
 
 # Create your views here.
@@ -9,9 +9,12 @@ class LandingPage(View):
     def get(self, request):
         all_given_donations = list(Donation.objects.aggregate(Sum('quantity')).values())[0]
         all_donated_organisations = Donation.objects.values('institution').count()
+        sample_foundations = Institution.objects.filter(type='F')[:3]
+        print(sample_foundations)
         return render(request, "oddam_app/index.html", {
             "all_given_donations": all_given_donations,
             "all_donated_organisations": all_donated_organisations,
+            "sample_foundations": sample_foundations,
         })
 
 
