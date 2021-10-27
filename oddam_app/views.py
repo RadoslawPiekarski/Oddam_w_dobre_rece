@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views import View
 from django.db.models import Sum
 from .models import Donation, Institution
+from django.contrib.auth.models import User
+from .forms import CreateUserForm
+from django.contrib.auth import login
+from django.contrib import messages
 
 
 # Create your views here.
@@ -33,4 +37,32 @@ class Login(View):
 
 class Register(View):
     def get(self, request):
-        return render(request, "oddam_app/register.html")
+        form = CreateUserForm()
+        return render(request, "oddam_app/register.html", {
+            "form": form
+        })
+
+    def post(self, request):
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = User(
+                username=form.cleaned_data["username"],
+                password=form.cleaned_data["password"],
+                first_name=form.cleaned_data["firstname"],
+                last_name=form.cleaned_data["lastname"],
+                email=form.cleaned_data["email"],
+            )
+            user.save()
+
+    #     form = NewUserForm()
+    #     return render(request, "oddam_app/register.html", {"register_form": form})
+    #
+    # def post(self, request):
+    #     form = NewUserForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save()
+    #         login(request, user)
+    #         messages.success(request, "Rejestracja zakończona sukcesem.")
+    #         return render(request, "oddam_app/index.html")
+    #     messages.error(request, "Nie zarejestrowano użytkownika. Brak wymaganych danych")
+    #     return render(request, "oddam_app/register.html", {"register_form": form})
