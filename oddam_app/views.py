@@ -42,11 +42,12 @@ class Register(View):
             "form": form
         })
 
+# TODO add hash password or custom user view!!!
     def post(self, request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = User(
-                username=form.cleaned_data["username"],
+                username=form.cleaned_data["email"],
                 password=form.cleaned_data["password"],
                 first_name=form.cleaned_data["firstname"],
                 last_name=form.cleaned_data["lastname"],
