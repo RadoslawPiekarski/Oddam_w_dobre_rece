@@ -53,6 +53,10 @@ class Register(View):
                 email=form.cleaned_data["email"],
             )
             user.save()
+            return render(request, "oddam_app/index.html")
+        messages.error(request, "Nie zarejestrowano użytkownika. Brak wymaganych danych")
+        return render(request, "oddam_app/register.html", {"register_form": form})
+
 
     #     form = NewUserForm()
     #     return render(request, "oddam_app/register.html", {"register_form": form})
