@@ -3,7 +3,7 @@ from django.views import View
 from django.db.models import Sum
 from .models import Donation, Institution
 from django.contrib.auth.models import User
-from .forms import CreateUserForm
+from .forms import CreateUserForm, LoginForm
 from django.contrib.auth import login
 from django.contrib import messages
 
@@ -33,6 +33,12 @@ class AddDonation(View):
 class Login(View):
     def get(self, request):
         return render(request, "oddam_app/login.html")
+
+    def post(self, request):
+        form = LoginForm(request.POST);
+        if form.is_valid():
+            pass
+            # TODO dokonczyc logowanie
 
 
 class Register(View):
